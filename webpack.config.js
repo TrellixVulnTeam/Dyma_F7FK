@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     main: path.join(__dirname, "src/index.js"),
     form: path.join(__dirname, "src/form/form.js"),
+    topbar: path.join(__dirname, "src/assets/javascripts/topbar.js"),
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -51,7 +52,7 @@ module.exports = {
   mode: "development",
   devServer: {
     open: false,
-    contentBase: "./dist",
+    contentBase: path.resolve(__dirname, "./dist"),
     inline: true,
     port: 4000,
   },
