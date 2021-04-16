@@ -22,21 +22,27 @@ form.addEventListener("submit", async (event) => {
       const body = await response.json();
       console.log(body);
     } catch (e) {
-      console.log("e:", e);
+      console.error("e : ", e);
     }
   }
 });
 
 const formIsValid = (article) => {
-  if (!article.author || !article.category || !article.content) {
-    errors.push("Invalid");
+  if (
+    !article.author ||
+    !article.category ||
+    !article.content ||
+    !article.img ||
+    !article.title
+  ) {
+    errors.push("Vous devez renseigner tous les champs");
   } else {
     errors = [];
   }
   if (errors.length) {
     let errorHTML = "";
     errors.forEach((e) => {
-      errorHTML += `<li> ${e} </li>`;
+      errorHTML += `<li>${e}</li>`;
     });
     errorElement.innerHTML = errorHTML;
     return false;
