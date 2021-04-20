@@ -1,5 +1,6 @@
 import "./assets/styles/styles.scss";
 import "./index.scss";
+import { openModal } from "./assets/javascripts/modal.js";
 
 const articleContainerElement = document.querySelector(".articles-container");
 const categoriesContainerElement = document.querySelector(".categories");
@@ -26,12 +27,12 @@ const createArticles = () => {
       const articleDOM = document.createElement("div");
       articleDOM.classList.add("article");
       articleDOM.innerHTML = `
-<img
-  src="${article.img}"
-  alt="profile"
-/>
-<h2>${article.title}</h2>
-<p class="article-author">${article.author} - ${new Date(
+  <img
+    src="${article.img}"
+    alt="profile"
+  />
+  <h2>${article.title}</h2>
+  <p class="article-author">${article.author} - ${new Date(
         article.createdAt
       ).toLocaleDateString("fr-FR", {
         weekday: "long",
@@ -39,14 +40,14 @@ const createArticles = () => {
         month: "long",
         year: "numeric",
       })}</p>
-<p class="article-content">
-  ${article.content}
-</p>
-<div class="article-actions">
-<button class="btn btn-danger" data-id=${article._id} >Supprimer</button>
-<button class="btn btn-primary" data-id=${article._id} >modifier</button>
-</div>
-`;
+  <p class="article-content">
+    ${article.content}
+  </p>
+  <div class="article-actions">
+  <button class="btn btn-danger" data-id=${article._id} >Supprimer</button>
+  <button class="btn btn-primary" data-id=${article._id} >modifier</button>
+  </div>
+  `;
       return articleDOM;
     });
   articleContainerElement.innerHTML = "";
@@ -64,21 +65,22 @@ const createArticles = () => {
 
   deleteButtons.forEach((button) => {
     button.addEventListener("click", async (event) => {
-      try {
-        const target = event.target;
-        const articleId = target.dataset.id;
-        const response = await fetch(
-          `https://restapi.fr/api/article/${articleId}`,
-          {
-            method: "DELETE",
-          }
-        );
-        const body = await response.json();
-        console.log(body);
-        fetchArticle();
-      } catch (e) {
-        console.log("e : ", e);
-      }
+      openModal("etes vous sur de vouloir supprimer?");
+      //     try {
+      //       const target = event.target;
+      //       const articleId = target.dataset.id;
+      //       const response = await fetch(
+      //         `https://restapi.fr/api/article/${articleId}`,
+      //         {
+      //           method: "DELETE",
+      //         }
+      //       );
+      //       const body = await response.json();
+      //       console.log(body);
+      //       fetchArticle();
+      //     } catch (e) {
+      //       console.log("e : ", e);
+      //     }
     });
   });
 };
