@@ -144,3 +144,21 @@ const fetchArticle = async () => {
 };
 
 fetchArticle();
+
+const obj = {
+  key: "value",
+};
+Object.defineProperty(obj, "key", {
+  writable: false,
+  enumerable: false,
+});
+
+const descriptor = Object.getOwnPropertyDescriptor(obj, "key");
+
+console.log(descriptor);
+// obj.key = "value2";
+
+// console.log(obj);
+for (let key in obj) {
+  console.log(key);
+}
