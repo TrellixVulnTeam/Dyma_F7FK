@@ -200,3 +200,35 @@ function Car(brand) {
 
 console.log(tesla);
 console.log(renault);
+
+const vehicule = {
+  hasEngine: true,
+  start() {
+    console.log("vrouuum!!!");
+  },
+};
+const car = {
+  brand: "tesla",
+};
+
+car.__proto__ = vehicule;
+
+const engine = {
+  power: 240,
+};
+
+const bus = {
+  brand: "volvo",
+};
+
+bus.__proto__ = vehicule;
+
+vehicule.__proto__ = engine;
+
+console.log(car);
+console.log(car.hasEngine);
+car.start();
+console.log(car.power);
+console.log(engine.power);
+
+console.log(car);
