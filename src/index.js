@@ -162,3 +162,17 @@ console.log(descriptor);
 for (let key in obj) {
   console.log(key);
 }
+
+const user = {
+  firstname: "tintin",
+  lastname: "milou",
+  get fullname() {
+    return this.firstname + "" + this.lastname;
+  },
+  set fullname(value) {
+    [this.firstname, this.lastname] = value.split(" ");
+  },
+};
+
+user.fullname = "foo";
+console.log(user.fullname);
