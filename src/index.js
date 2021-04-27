@@ -176,3 +176,27 @@ const user = {
 
 user.fullname = "foo";
 console.log(user.fullname);
+
+// const car = {
+//   brand: "tesla",
+//   roues: 4,
+//   hasEngine: true,
+// };
+
+// const renault = {
+//   brand: "renault",
+//   roues: 4,
+//   hasEngine: true,
+// };
+
+const tesla = new Car("tesla");
+const renault = new Car("renault");
+
+function Car(brand) {
+  this.brand = brand;
+  this.roues = 4;
+  this.hasEngine = true;
+}
+
+console.log(tesla);
+console.log(renault);
