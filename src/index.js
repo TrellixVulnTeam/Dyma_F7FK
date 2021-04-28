@@ -239,14 +239,30 @@ hello.foo = () => {
   console.log("foo");
 };
 
-const foo = {
-  test: 1,
-};
+// const foo = {
+//   test: 1,
+// };
 
-console.log(Object.entries(foo));
-// Object.freeze(foo);
+// console.log(Object.entries(foo));
+// // Object.freeze(foo);
 
-foo.test = 2;
-Object.values(foo);
+// foo.test = 2;
+// Object.values(foo);
 
-foo.bar = 3;
+// foo.bar = 3;
+
+class Foo {
+  constructor() {}
+  hello() {
+    console.log("hello");
+  }
+
+  hi() {
+    console.log("hi");
+  }
+}
+
+const foo = new Foo();
+
+foo.hello();
+foo.hi();
