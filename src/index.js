@@ -232,3 +232,21 @@ console.log(car.power);
 console.log(engine.power);
 
 console.log(car);
+
+function hello() {}
+
+hello.foo = () => {
+  console.log("foo");
+};
+
+const foo = {
+  test: 1,
+};
+
+console.log(Object.entries(foo));
+// Object.freeze(foo);
+
+foo.test = 2;
+Object.values(foo);
+
+foo.bar = 3;
