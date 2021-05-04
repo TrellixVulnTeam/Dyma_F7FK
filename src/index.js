@@ -252,7 +252,9 @@ hello.foo = () => {
 // foo.bar = 3;
 
 class Foo {
-  constructor() {}
+  constructor(name) {
+    this.name = name;
+  }
   hello() {
     console.log("hello");
   }
@@ -264,5 +266,18 @@ class Foo {
 
 const foo = new Foo();
 
-foo.hello();
-foo.hi();
+const bar = new Bar("bar");
+
+console.log(bar);
+
+function Bar(name) {
+  this.name = name;
+}
+
+Bar.prototype.hello = function () {
+  console.log("hello");
+};
+
+Bar.prototype.hi = function () {
+  console.log("hi");
+};
